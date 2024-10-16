@@ -1,14 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; // Import thư viện UI
 
 public class IfStatementPractise : MonoBehaviour
 {
+    public int number;                      //bt 1
+    public int inputNumber;                 //bt 2
+    public float averageScore;              //bt 3
+    public int firstNumber;                 //bt 4
+    public int secondNumber;                //bt 4
+    public float customerMoney;             //bt 5
+    public float productPrice;              //bt 5
+    public int year;                        //bt 6
+    private int ticketPrice;                //bt 7
+    public int age;                         //bt 7
+    public float averageGrade;              //bt 8
+    public int firsttNumber;                //bt 9
+    public int seconddNumber;               //bt 9
+    public int thirddNumber;                //bt 9
+    public float fixedSalary = 3000000;     //bt 10
+    public int hoursWorked;                 //bt 10
+    public int agee;                        //bt 11
+    public bool hasMembershipCard;          //bt 11
+    public float averageGradee;             //bt 12
+    public float electricityUsage;          //bt 13
+    public int yearsOfService;              //bt 14
+    public bool hasGoodPerformanceReview;   //bt 14
+    public float orderValue;                //bt 15
+    public float income;                    //bt 16
+    public float testScore1;                //bt 17
+    public float testScore2;                //bt 17
+    public float testScore3;                //bt 17
+    public int currentStock;                //bt 18
+    public bool isStorageAvailable;         //bt 18
+    public int newinputNumber;              //bt 19
+    public bool completedBasicCourse;       //bt 20
+    public float cumulativeScore;           //bt 20
+    public bool hasTeacherRecommendation;   //bt 20
+
     private void Start()
     {
         // Gọi từng bài tập để kiểm tra kết quả.
         BaiTap1(); // Kiểm tra số dương, âm, hoặc bằng 0
-        BaiTap2(); // Kiểm tra số chẵn hay lẻ
+        BaiTap2(inputNumber); // Kiểm tra số chẵn hay lẻ
         BaiTap3(); // Kiểm tra điều kiện thi đỗ
         BaiTap4(); // Tìm số lớn nhất trong hai số
         BaiTap5(); // Kiểm tra điều kiện mua hàng
@@ -32,141 +67,423 @@ public class IfStatementPractise : MonoBehaviour
     // Bài Tập 1: Kiểm Tra Số Dương, Âm Hoặc Bằng 0
     void BaiTap1()
     {
-        // Nhập một số từ bàn phím
-        // Kiểm tra xem số đó là số dương, âm hay bằng 0
+        CheckNumber(number);
+
+        void CheckNumber(int num)
+        {
+            if (num > 0)
+            {
+                Debug.Log(num + " là số dương.");
+            }
+            else if (num < 0)
+            {
+                Debug.Log(num + " là số âm.");
+            }
+            else
+            {
+                Debug.Log("Số này bằng 0.");
+            }
+        }
     }
 
     // Bài Tập 2: Kiểm Tra Số Chẵn Hay Lẻ
-    void BaiTap2()
+    void BaiTap2(int num)
     {
-        // Nhập một số từ bàn phím
-        // Kiểm tra xem số đó là số chẵn hay lẻ
+        if (num % 2 == 0)
+        {
+            Debug.Log(num + " là số chẵn.");
+        }
+        else
+        {
+            Debug.Log(num + " là số lẻ.");
+        }
     }
 
     // Bài Tập 3: Kiểm Tra Điều Kiện Thi Đỗ
     void BaiTap3()
     {
-        // Nhập điểm trung bình của học sinh từ bàn phím
-        // Kiểm tra nếu điểm trung bình >= 5.0 thì học sinh đỗ, ngược lại thì trượt
+        CheckExamResult(averageScore);
+
+        // Hàm kiểm tra kết quả kỳ thi
+        void CheckExamResult(float score)
+        {
+            if (score >= 5.0f)
+            {
+                Debug.Log("Học sinh đã đỗ kỳ thi.");
+            }
+            else
+            {
+                Debug.Log("Học sinh không đỗ kỳ thi.");
+            }
+        }
     }
 
     // Bài Tập 4: Tìm Số Lớn Nhất Trong Hai Số
     void BaiTap4()
     {
-        // Nhập hai số nguyên từ bàn phím
-        // Kiểm tra và in ra số lớn nhất trong hai số đó
+        CheckMaxNumber(firstNumber, secondNumber);
+
+        // Hàm kiểm tra và in ra số lớn nhất
+        void CheckMaxNumber(int num1, int num2)
+        {
+            if (num1 > num2)
+            {
+                Debug.Log("Số lớn nhất là: " + num1);
+            }
+            else if (num1 < num2)
+            {
+                Debug.Log("Số lớn nhất là: " + num2);
+            }
+            else
+            {
+                Debug.Log("Hai số bằng nhau: " + num1);
+            }
+        }
     }
 
     // Bài Tập 5: Kiểm Tra Điều Kiện Mua Hàng
     void BaiTap5()
     {
-        // Nhập số tiền hiện có và giá sản phẩm từ bàn phím
-        // Kiểm tra xem người dùng có đủ tiền mua hàng không
+        CheckPurchase(customerMoney, productPrice);
+
+        void CheckPurchase(float money, float price)
+        {
+            if (money >= price)
+            {
+                Debug.Log("Người mua có thể mua sản phẩm.");
+            }
+            else
+            {
+                Debug.Log("Người mua không đủ tiền để mua sản phẩm.");
+            }
+        }
     }
 
     // Bài Tập 6: Kiểm Tra Năm Nhuận
     void BaiTap6()
     {
-        // Nhập một năm từ bàn phím
-        // Kiểm tra xem năm đó có phải là năm nhuận hay không
+        CheckLeapYear(year);
+
+        void CheckLeapYear(int inputYear)
+        {
+            if ((inputYear % 4 == 0 && inputYear % 100 != 0) || (inputYear % 400 == 0))
+            {
+                Debug.Log(inputYear + " là năm nhuận.");
+            }
+            else
+            {
+                Debug.Log(inputYear + " không phải là năm nhuận.");
+            }
+        }
     }
 
     // Bài Tập 7: Tính Giá Vé Xem Phim
     void BaiTap7()
     {
-        // Nhập tuổi của người mua vé từ bàn phím
-        // Nếu người mua dưới 18 tuổi, giá vé là 50,000 đồng
-        // Nếu người mua từ 18 tuổi trở lên, giá vé là 100,000 đồng
+        CalculateTicketPrice(age);
+
+        void CalculateTicketPrice(int customerAge)
+        {
+            if (customerAge < 18)
+            {
+                ticketPrice = 50000; // Giá vé cho người dưới 18 tuổi
+            }
+            else
+            {
+                ticketPrice = 100000; // Giá vé cho người từ 18 tuổi trở lên
+            }
+
+            Debug.Log("Giá vé cho người " + customerAge + " tuổi là: " + ticketPrice + " đồng.");
+        }
     }
 
     // Bài Tập 8: Kiểm Tra Học Sinh Xuất Sắc
     void BaiTap8()
     {
-        // Nhập điểm trung bình của học sinh từ bàn phím
-        // Kiểm tra xem học sinh có đạt danh hiệu xuất sắc không (điểm trung bình >= 9.0)
+        CheckForExcellenceAward(averageGrade);
+
+        void CheckForExcellenceAward(float grade)
+        {
+            if (grade >= 9.0f)
+            {
+                Debug.Log("Học sinh đạt danh hiệu học sinh xuất sắc.");
+            }
+            else
+            {
+                Debug.Log("Học sinh không đạt danh hiệu học sinh xuất sắc.");
+            }
+        }
     }
 
     // Bài Tập 9: So Sánh Ba Số
     void BaiTap9()
     {
-        // Nhập ba số nguyên từ bàn phím
-        // Kiểm tra và in ra số lớn nhất trong ba số đó
+        CheckMaxOfThree(firsttNumber, seconddNumber, thirddNumber);
+
+        void CheckMaxOfThree(int num1, int num2, int num3)
+        {
+            int maxNumber = num1; // Giả định số lớn nhất ban đầu là num1
+
+            if (num2 > maxNumber)
+            {
+                maxNumber = num2; // Cập nhật maxNumber nếu num2 lớn hơn
+            }
+
+            if (num3 > maxNumber)
+            {
+                maxNumber = num3; // Cập nhật maxNumber nếu num3 lớn hơn
+            }
+
+            Debug.Log("Số lớn nhất là: " + maxNumber);
+        }
     }
 
     // Bài Tập 10: Tính Tiền Lương
     void BaiTap10()
     {
-        // Nhập số giờ làm việc và mức lương cố định từ bàn phím
-        // Nếu nhân viên làm trên 40 giờ, lương được tính thêm giờ
-        // Nếu làm dưới hoặc bằng 40 giờ, lương tính theo giờ cố định
+        float totalSalary = CalculateSalary(hoursWorked);
+        Debug.Log("Tiền lương của nhân viên là: " + totalSalary + " đồng.");
+
+        // Hàm tính tiền lương
+        float CalculateSalary(int hours)
+        {
+            if (hours > 40)
+            {
+                // Tính số giờ làm thêm
+                int overtimeHours = hours - 40;
+                // Tính lương với giờ làm thêm
+                float overtimeSalary = overtimeHours * (fixedSalary / 40) * 2; // Lương gấp đôi
+                return fixedSalary + overtimeSalary; // Tổng lương
+            }
+            else
+            {
+                return fixedSalary; // Lương cố định
+            }
+        }
     }
 
     // Bài Tập 11: Kiểm Tra Điều Kiện Vào Câu Lạc Bộ
     void BaiTap11()
     {
-        // Nhập tuổi và kiểm tra xem người đó có thẻ thành viên hay không
-        // Kiểm tra nếu trên 18 tuổi và có thẻ thành viên thì được vào câu lạc bộ
+        CheckClubEntry(agee, hasMembershipCard);
+
+        // Hàm kiểm tra xem người đó có thể vào câu lạc bộ không
+        void CheckClubEntry(int personAge, bool membershipCard)
+        {
+            if (personAge > 18 && membershipCard)
+            {
+                Debug.Log("Người này có thể vào câu lạc bộ.");
+            }
+            else
+            {
+                Debug.Log("Người này không thể vào câu lạc bộ.");
+            }
+        }
     }
 
     // Bài Tập 12: Phân Loại Học Sinh
     void BaiTap12()
     {
-        // Nhập điểm trung bình của học sinh từ bàn phím
-        // Phân loại học sinh theo thang điểm từ xuất sắc đến yếu
+        ClassifyStudent(averageGradee);
+
+        void ClassifyStudent(float grade)
+        {
+            if (grade >= 9.0f)
+            {
+                Debug.Log("Học sinh đạt danh hiệu: Xuất sắc.");
+            }
+            else if (grade >= 8.0f)
+            {
+                Debug.Log("Học sinh đạt danh hiệu: Giỏi.");
+            }
+            else if (grade >= 7.0f)
+            {
+                Debug.Log("Học sinh đạt danh hiệu: Khá.");
+            }
+            else if (grade >= 5.0f)
+            {
+                Debug.Log("Học sinh đạt danh hiệu: Trung bình.");
+            }
+            else
+            {
+                Debug.Log("Học sinh đạt danh hiệu: Yếu.");
+            }
+        }
     }
 
     // Bài Tập 13: Tính Tiền Điện
     void BaiTap13()
     {
-        // Nhập số điện tiêu thụ từ bàn phím
-        // Tính tiền điện theo công thức: <= 100 kWh: 1,500 đồng/kWh, >100 kWh: 2,000 đồng/kWh
+        float totalBill = CalculateElectricityBill(electricityUsage);
+        Debug.Log("Tổng tiền điện phải trả là: " + totalBill + " đồng.");
+
+        // Hàm tính tiền điện
+        float CalculateElectricityBill(float usage)
+        {
+            float bill = 0;
+
+            if (usage <= 100)
+            {
+                bill = usage * 1500; // Giá điện cho phần ≤ 100 kWh
+            }
+            else
+            {
+                // Tính tiền cho 100 kWh đầu
+                bill = 100 * 1500;
+                // Tính tiền cho phần vượt quá 100 kWh
+                bill += (usage - 100) * 2000;
+            }
+
+            return bill; // Trả về tổng tiền điện
+        }
     }
 
     // Bài Tập 14: Kiểm Tra Điều Kiện Thăng Chức
     void BaiTap14()
     {
-        // Nhập số năm làm việc và đánh giá công việc
-        // Kiểm tra nếu số năm làm việc trên 5 năm và đánh giá tốt thì đủ điều kiện thăng chức
+        CheckPromotionEligibility(yearsOfService, hasGoodPerformanceReview);
+
+        // Hàm kiểm tra xem nhân viên có đủ điều kiện thăng chức không
+        void CheckPromotionEligibility(int serviceYears, bool performanceReview)
+        {
+            if (serviceYears > 5 && performanceReview)
+            {
+                Debug.Log("Nhân viên đủ điều kiện thăng chức.");
+            }
+            else
+            {
+                Debug.Log("Nhân viên không đủ điều kiện thăng chức.");
+            }
+        }
     }
 
     // Bài Tập 15: Kiểm Tra Điều Kiện Miễn Phí Vận Chuyển
     void BaiTap15()
     {
-        // Nhập giá trị đơn hàng từ bàn phím
-        // Kiểm tra nếu giá trị đơn hàng >= 500,000 đồng thì được miễn phí vận chuyển
+        CheckFreeShipping(orderValue);
+
+        // Hàm kiểm tra xem đơn hàng có được miễn phí vận chuyển không
+        void CheckFreeShipping(float value)
+        {
+            if (value >= 500000)
+            {
+                Debug.Log("Đơn hàng được miễn phí vận chuyển.");
+            }
+            else
+            {
+                Debug.Log("Đơn hàng không được miễn phí vận chuyển.");
+            }
+        }
     }
 
     // Bài Tập 16: Tính Thuế Thu Nhập Cá Nhân
     void BaiTap16()
     {
-        // Nhập thu nhập từ bàn phím
-        // Tính thuế thu nhập cá nhân dựa trên mức thu nhập
+        float taxAmount = CalculateIncomeTax(income);
+        Debug.Log("Số thuế thu nhập cá nhân phải trả là: " + taxAmount + " đồng.");
+
+        // Hàm tính thuế thu nhập cá nhân
+        float CalculateIncomeTax(float income)
+        {
+            float taxRate;
+
+            if (income <= 10000000) // <= 10 triệu
+            {
+                taxRate = 0.05f; // 5%
+            }
+            else if (income > 10000000 && income <= 20000000) // > 10 triệu và <= 20 triệu
+            {
+                taxRate = 0.10f; // 10%
+            }
+            else // > 20 triệu
+            {
+                taxRate = 0.20f; // 20%
+            }
+
+            return income * taxRate; // Tính và trả về số thuế phải trả
+        }
     }
 
     // Bài Tập 17: Tính Điểm Trung Bình Của Môn Học
     void BaiTap17()
     {
-        // Nhập điểm của 3 bài kiểm tra từ bàn phím
-        // Tính điểm trung bình và kiểm tra xem học sinh có đạt yêu cầu hay không (>= 5.0)
+        float averageScore = CalculateAverageScore(testScore1, testScore2, testScore3);
+        CheckPass(averageScore);
+
+        // Hàm tính điểm trung bình
+        float CalculateAverageScore(float score1, float score2, float score3)
+        {
+            return (score1 + score2 + score3) / 3; // Tính điểm trung bình
+        }
+
+        // Hàm kiểm tra xem học sinh có đạt hay không
+        void CheckPass(float average)
+        {
+            if (average >= 5.0f)
+            {
+                Debug.Log("Học sinh đạt.");
+            }
+            else
+            {
+                Debug.Log("Học sinh không đạt.");
+            }
+        }
     }
 
     // Bài Tập 18: Kiểm Tra Điều Kiện Nhập Hàng
     void BaiTap18()
     {
-        // Nhập số lượng hàng hiện tại và kiểm tra khả năng nhập thêm hàng (dưới 100 và còn chỗ)
+        CheckIfCanRestock(currentStock, isStorageAvailable);
+
+        // Hàm kiểm tra xem cửa hàng có thể nhập thêm hàng hay không
+        void CheckIfCanRestock(int stock, bool storageAvailable)
+        {
+            if (stock < 100 && storageAvailable)
+            {
+                Debug.Log("Cửa hàng có thể nhập thêm hàng.");
+            }
+            else
+            {
+                Debug.Log("Cửa hàng không thể nhập thêm hàng.");
+            }
+        }
     }
 
     // Bài Tập 19: Tìm Số Lớn Hơn 10
     void BaiTap19()
     {
-        // Nhập một số từ bàn phím
-        // Kiểm tra xem số đó có lớn hơn 10 hay không
+        CheckIfGreaterThanTen(newinputNumber);
+
+        // Hàm kiểm tra xem số nguyên có lớn hơn 10 hay không
+        void CheckIfGreaterThanTen(int number)
+        {
+            if (number > 10)
+            {
+                Debug.Log("Số nhập vào lớn hơn 10.");
+            }
+            else
+            {
+                Debug.Log("Số nhập vào không lớn hơn 10.");
+            }
+        }
     }
 
     // Bài Tập 20: Kiểm Tra Điều Kiện Đăng Ký Khóa Học
     void BaiTap20()
     {
-        // Nhập điểm tổng kết và các điều kiện khác từ bàn phím
-        // Kiểm tra xem học sinh có đủ điều kiện đăng ký khóa học nâng cao không
+        CheckEligibilityForAdvancedCourse(completedBasicCourse, cumulativeScore, hasTeacherRecommendation);
+
+        // Hàm kiểm tra xem học sinh có đủ điều kiện đăng ký khóa học nâng cao không
+        void CheckEligibilityForAdvancedCourse(bool completedCourse, float score, bool hasRecommendation)
+        {
+            if (completedCourse && score >= 7.0f && hasRecommendation)
+            {
+                Debug.Log("Học sinh đủ điều kiện đăng ký khóa học nâng cao.");
+            }
+            else
+            {
+                Debug.Log("Học sinh không đủ điều kiện đăng ký khóa học nâng cao.");
+            }
+        }
     }
 }
